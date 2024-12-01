@@ -11,7 +11,7 @@ RUN apk update && \
     openssl-dev \
     rust \
     cargo \
-    zsh \
+    zsh 
 
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
