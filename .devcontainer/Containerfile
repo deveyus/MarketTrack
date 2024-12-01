@@ -9,6 +9,7 @@ RUN apk update && \
     git \
     openssl \
     openssl-dev \
+    openssh-client \
     rust \
     cargo \
     zsh 
