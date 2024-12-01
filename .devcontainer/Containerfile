@@ -16,6 +16,9 @@ RUN apk update && \
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# ensure .zshrc exists
+RUN touch ~/.zshrc
+
 # Set theme to agnoster
 RUN sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/g' ~/.zshrc
 
@@ -27,4 +30,4 @@ RUN sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting)/g' ~/.zshrc
 ENV SHELL /bin/zsh
 
 # Set custom prompt without hostname
-RUN echo 'PROMPT="[%F{cyan}%n%f | %F{green}%~%f] "' >> /home/node/.zshrc
+RUN echo 'PROMPT="[%F{cyan}%n%f | %F{green}%~%f] "' >> ~/.zshrc
