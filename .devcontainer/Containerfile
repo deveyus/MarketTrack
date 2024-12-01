@@ -15,14 +15,15 @@ RUN apk update && \
 # Install rustup
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh -s -- -y
 
-# Fixes issues with cargo not being in the environment
-ENV PATH="$PATH:$HOME/.cargo/bin"
-
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Ensure .zshrc exists
 RUN touch ~/.zshrc
+
+# Add cargo environment script to .zshrc
+RUN echo 'source $HOME/.cargo/env' >> ~/.zshrc
+
 
 # Set theme to agnoster
 RUN sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/g' ~/.zshrc
