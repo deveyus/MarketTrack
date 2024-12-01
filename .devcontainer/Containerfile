@@ -12,6 +12,10 @@ RUN apk update && \
     openssh-client \
     zsh 
 
+# Setup OpenSSL environment variables
+ENV OPENSSL_DIR=/usr
+ENV OPENSSL_LIB_DIR=/usr/lib
+
 # Install rustup
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh -s -- -y
 

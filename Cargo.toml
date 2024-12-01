@@ -8,7 +8,6 @@ publish = false
 salvo = { version = "0.74", features = ["full"] }
 tokio = { version = "1", features = ["macros"] }
 yew = { version = "0.21", features = ["ssr"] }
-yew-macro = { version = "0.21", features = ["ssr"] }
 wasm-bindgen = "0.2"
 web-sys = "0.3"
 tracing = "0.1"
