@@ -10,14 +10,18 @@ RUN apk update && \
     openssl \
     openssl-dev \
     openssh-client \
-    rust \
-    cargo \
     zsh 
+
+# Install rustup
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh -s -- -y
+
+# Fixes issues with cargo not being in the environment
+ENV PATH="$PATH:$HOME/.cargo/bin"
 
 # Install Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# ensure .zshrc exists
+# Ensure .zshrc exists
 RUN touch ~/.zshrc
 
 # Set theme to agnoster
