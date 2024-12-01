@@ -1,0 +1,6 @@
+{
+    "name": "RustRemote",
+    "build": {
+        "dockerfile": "Containerfile"
+    }
+}
